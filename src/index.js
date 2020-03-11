@@ -4,6 +4,8 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { clearConfigCache } from 'prettier';
+import './index.css';
 
 const movie = {
   title: 'Avengers: Infinity War',
@@ -15,7 +17,7 @@ const movie = {
 };
 function Image(props) {
   // console.log('Image props:', props);
-  return <img src={props.src} alt={props.alt} />;
+  return <img width="100%" src={props.src} alt={props.alt} />;
 }
 
 // function MovieItem(props) {
@@ -34,16 +36,50 @@ function Image(props) {
 
 // MovieItem = new React.Component()
 class MovieItem extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      show: false,
+      like: false,
+    };
+  }
+
+  toggleOverview = () => {
+    this.setState({
+      show: !this.state.show,
+    });
+  };
+
+  handleLike = () => {
+    this.setState({
+      like: !this.state.like,
+    });
+  };
+
   render() {
     const {
-      data: { title, vote_avetage, image },
+      data: { title, vote_avetage, image, overview },
     } = this.props;
-    console.log(this);
+    console.log('state', this.state);
     return (
-      <div>
+      <div style={{ width: '300px' }}>
         <Image src={image} alt={title} />
         <p>{title}</p>
         <p>{vote_avetage}</p>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <button type="button" onClick={this.toggleOverview}>
+            {this.state.show ? 'Hide' : 'Show'}
+          </button>
+          <button
+            type="button"
+            onClick={this.handleLike}
+            className={this.state.like ? 'btn--like' : ''}
+          >
+            Like
+          </button>
+        </div>
+        {this.state.show ? <p>{overview}</p> : null}
       </div>
     );
   }
