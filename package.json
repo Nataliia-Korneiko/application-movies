@@ -4,9 +4,11 @@
   "private": true,
   "homepage": "https://Nataliia-Korneiko.github.io/application-movies",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "gh-pages": "^2.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
+    "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.11.0",
     "react-scripts": "^3.4.0"
   },

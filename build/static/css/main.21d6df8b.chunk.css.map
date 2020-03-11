@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,WACE,qBAAsB,CACtB,UACF","file":"main.21d6df8b.chunk.css","sourcesContent":[".btn--like {\n  background-color: blue;\n  color: white;\n}\n"]}
